@@ -1,0 +1,249 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-contours {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 72%;
+  max-width: 700px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 5rem 8vw;
+  width: 100%;
+}
+
+/* ── LEFT COLUMN ── */
+.hero-left {
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding-right: 4rem;
+}
+
+.hero-portrait-wrap {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-portrait-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border: 1px solid var(--accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.1;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: fadeUp 0.6s 0.15s ease both;
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--muted);
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+  animation: fadeUp 0.6s 0.45s ease both;
+}
+
+.hero-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 0.55rem 1.2rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-btn:first-child {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.hero-btn:first-child:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.hero-btn:last-child:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── DIVIDER ── */
+.hero-divider {
+  flex: 0 0 1px;
+  align-self: stretch;
+  background: var(--line);
+  margin: 3rem 0;
+  min-height: 240px;
+  align-self: center;
+  height: 55%;
+}
+
+/* ── RIGHT COLUMN ── */
+.hero-right {
+  flex: 1;
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeUp 0.6s 0.6s ease both;
+}
+
+.hero-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-bio-para {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 52ch;
+}
+
+.hero-stats {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 2px solid var(--line);
+  padding-left: 1.25rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.hero-stat-value {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3.5rem 8vw;
+    gap: 2.5rem;
+  }
+
+  .hero-left {
+    flex: none;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    min-height: 0;
+    align-self: auto;
+    margin: 0;
+  }
+
+  .hero-right {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .hero-contours {
+    top: -5%;
+    right: -20%;
+    width: 90%;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-portrait-wrap {
+    width: 160px;
+    height: 200px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hero-btn {
+    text-align: center;
+  }
+}
